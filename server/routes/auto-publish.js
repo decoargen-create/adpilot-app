@@ -143,7 +143,7 @@ function classifyFile(file) {
 function detectProduct(folderName, products) {
   const lower = folderName.toLowerCase();
   for (const p of products) {
-    if (lower.includes(p.name) return p;
+    if (lower.includes(p.name.toLowerCase())) return p;
   }
   return null;
 }
