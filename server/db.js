@@ -1,12 +1,12 @@
-import { DatabaseSync } from 'node:sqlite';
+import Database from 'better-sqlite3';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const dbPath = path.join(__dirname, 'adpilot.db');
 
-const sqliteDb = new DatabaseSync(dbPath);
-sqliteDb.exec('PRAGMA foreign_keys = ON');
+const sqliteDb = new Database(dbPath);
+sqliteDb.pragma('foreign_keys = ON');
 
 // Wrapper that mimics the sqlite3 callback API used throughout the codebase
 const db = {
